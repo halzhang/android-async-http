@@ -28,6 +28,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpRequestRetryHandler;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.AbstractHttpClient;
+import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HttpContext;
 
 class AsyncHttpRequest implements Runnable {
@@ -78,6 +79,7 @@ class AsyncHttpRequest implements Runnable {
         		HttpResponse response = client.execute(request, context);
         		if(!Thread.currentThread().isInterrupted()) {
         			if(responseHandler != null) {
+        			    response.addHeader(new BasicHeader(AsyncHttpClient.REFREER_LOCATION,(String)context.getAttribute(AsyncHttpClient.REFREER_LOCATION)));
         				responseHandler.sendResponseMessage(response);
         			}
         		} else{
