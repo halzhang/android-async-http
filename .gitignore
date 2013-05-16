@@ -9,3 +9,7 @@ gen/
 _layouts
 .DS_Store
 gh-pages
+
+# IntelliJ files
+.idea
+*.iml
