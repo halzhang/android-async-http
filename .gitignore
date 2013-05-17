@@ -13,3 +13,4 @@ gh-pages
 # IntelliJ files
 .idea
 *.iml
+module_*.xml
