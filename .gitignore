@@ -14,3 +14,7 @@ gh-pages
 .idea
 *.iml
 module_*.xml
+
+#gradle
+.gradle/
+build/
